@@ -1,10 +1,24 @@
 const path = require('path');
 
 async function runTests() {
+  const inboxTests = require('./fetchInboxMessages.test');
+
   const tests = [
     {
-      name: 'fetchInboxMessages',
-      run: require('./fetchInboxMessages.test').testFetchInboxMessages
+      name: 'Fetching all message summaries from a domain',
+      run: inboxTests.testFetchInboxAllMessages,
+    },
+    {
+      name: 'Fetching limited message summaries from a domain',
+      run: inboxTests.testFetchInboxLimitedMessages,
+    },
+    {
+      name: 'Fetching full message from a specific inbox',
+      run: inboxTests.testFetchSpecificInboxWithFullMessage,
+    },
+    {
+      name: 'Fetching all message summaries for a specific inbox',
+      run: inboxTests.testFetchSpecificInboxMessages,
     }
   ];
 
@@ -24,11 +38,10 @@ async function runTests() {
 
   if (hasFailures) {
     const envPath = path.resolve(__dirname, '..', '.env');
-    console.error('Ensure your Mailinator credentials are set in the environment or in', envPath);
     process.exit(1);
   }
 
-  console.log('Endpoint smoke tests complete');
+  console.log('Endpoint tests complete');
 }
 
 runTests();
