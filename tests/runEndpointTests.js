@@ -5,12 +5,12 @@ async function runTests() {
 
   const tests = [
     {
-      name: 'Fetching all message summaries from a domain',
-      run: inboxTests.testFetchInboxAllMessages,
-    },
-    {
       name: 'Fetching limited message summaries from a domain',
       run: inboxTests.testFetchInboxLimitedMessages,
+    },
+    {
+      name: 'Fetching all message summaries from a domain',
+      run: inboxTests.testFetchInboxAllMessages,
     },
     {
       name: 'Fetching full message from a specific inbox',

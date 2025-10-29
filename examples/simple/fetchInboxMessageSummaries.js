@@ -7,7 +7,7 @@ const DOMAIN = 'private';
 const INBOX_NAME = 'something';
 const LIMIT = 2;
 
-console.log('Fetch all emails (in message summary) from all inboxes');
+console.log('Fetch limited emails (in message summary) from all inboxes');
 async function fetchEmailsFromAllInboxes() {
   try {
     const response = await axios.get(
@@ -29,7 +29,7 @@ console.log('Fetch all emails (in message summary) from the specified inbox');
 async function fetchEmailsFromInbox() {
   try {
     const response = await axios.get(
-      `https://api.mailinator.com/api/v2/domains/${DOMAIN}/inboxes/${INBOX_NAME}?limit=${LIMIT}`,
+      `https://api.mailinator.com/api/v2/domains/${DOMAIN}/inboxes/${INBOX_NAME}`,
       {
         headers: { 'Authorization': `Bearer ${API_TOKEN}` }
       }
