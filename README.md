@@ -1,10 +1,23 @@
 # Mailinator API Examples
 
-Currently only in JavaScript using the HTTP client Axiom. Will eventually create multiple sets of examples. 
+JavaScript examples that show how to call the Mailinator API with Axios (an http library). Examples are split into simple one-off scripts, advanced workflows, and smoke tests that exercise individual endpoints.
 
-## Install and Run
+## Setup
 
-1. Create a .env file
-2. Add `MAILINATOR_API_TOKEN=your_token_here`
-3. `npm install`
-4. Run with `node nameOfFile.js`
+1. `npm install`
+2. Create a `.env` file:
+	- Required: `MAILINATOR_API_TOKEN=your_token_here`
+	- Optional: `MAILINATOR_DOMAIN=private` (defaults to `private`)
+	- Optional: `MAILINATOR_INBOX=your_inbox`
+	- Optional: `MAILINATOR_LIMIT=10`
+
+## Run examples
+
+- Simple request sample: `node examples/simple/fetchInboxMessages.js`
+- (Future) advanced workflows will live under `examples/advanced/`
+
+## Endpoint tests
+
+- Tests are in the `tests/` folder and rely on the shared client in `lib/mailinatorClient.js`
+- Run them with `npm run test-endpoints`
+- Ensure `MAILINATOR_INBOX` is set before executing the smoke tests
