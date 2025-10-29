@@ -18,6 +18,6 @@ JavaScript examples that show how to call the Mailinator API with Axios (an http
 
 ## Endpoint tests
 
-- Tests are in the `tests/` folder and rely on the shared client in `lib/mailinatorClient.js`
-- Run them with `npm run test-endpoints`
+- Tests live in `tests/` and call the Mailinator API directly with Axios
+- Run them with `npm test`
 - Ensure `MAILINATOR_INBOX` is set before executing the smoke tests
