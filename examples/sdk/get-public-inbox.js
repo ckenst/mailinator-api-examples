@@ -11,7 +11,7 @@ const client = new MailinatorClient({ authToken: API_TOKEN });
 
 async function example() {
   const domain = "private";   // <-- your real private domain
-  const inboxName = "chris";               // the inbox you want to read
+  const inboxName = "inbox";               // the inbox you want to read
 
   try {
     // Fetch the inbox
