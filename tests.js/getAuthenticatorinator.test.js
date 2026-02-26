@@ -4,6 +4,11 @@ test('Get instant TOTP codes based on a secret key', async () => {
     // pull secret key from environment variable AUTHENTICATORINATOR_SECRET_KEY
 });
 
+test('Get all stored authenticator IDs', async () => {
+    // pass in no AUTHENTICATORINATOR_ID environment variable
+    // assert you get an array of "passcodes"
+});
+
 test('Get instant TOTP code based on a stored authenticator ID', async () => {
     // assert you get a passcode value
     // assert you get 5 future values

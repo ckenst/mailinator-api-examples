@@ -59,5 +59,8 @@ test('Get inbox with limit=1 and then set delete=10s', async () => {
     //assert that the message is returned, save the id
     //make a second request and assert that the message is deleted
 });
-
-// get the SMS message from an inbox using the phone number
+test('Get inbox with phone number', async () => {
+    // might need to inject an SMS message first
+    // get the SMS phone number from the environment variable MAILINATOR_SMS_PHONE_NUMBER
+    // get the SMS message from an inbox using the phone number
+});

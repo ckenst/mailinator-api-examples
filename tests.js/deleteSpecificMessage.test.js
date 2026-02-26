@@ -1,5 +1,3 @@
-// This tests a workflow that can be used to delete a specific message from an inbox
-
 test('Create a message for an inbox', async () => {
     // inject a message, grab the id
 });
