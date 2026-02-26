@@ -1,9 +1,9 @@
 import { MailinatorClient, GetInboxRequest, Sort } from 'mailinator-client';
 
-const client = new MailinatorClient('YOUR_API_TOKEN');
+const client = new MailinatorClient('e066bc4e4e8b41aca529d6134dd317d9');
 
 const resp = await client.request(
-  new GetInboxRequest('private', '*', /*skip*/0, 1, Sort.DESC, /*decodeSubject*/true)
+  new GetInboxRequest('private', 'chris', /*skip*/0, 5, Sort.DESC, /*decodeSubject*/true)
 );
 
 // console.log('status', resp.statusCode);
