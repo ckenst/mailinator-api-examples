@@ -31,4 +31,3 @@ test('Get a list of rules for a domain', async () => {
     assert.ok(resp.result, 'Response result should be present');
     assert.ok(resp.result.rules.length >= 1, 'Expected at least 1 rule for this domain');
 });
-
