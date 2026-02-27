@@ -9,6 +9,8 @@ const {
     MailinatorClient,
     PostMessageRequest,
     MessageToPost,
+    DeleteDomainMessagesRequest,
+    GetInboxRequest,
 } = mailinatorClient;
 
 const __filename = fileURLToPath(import.meta.url);
@@ -39,10 +41,25 @@ test('Create a message for an inbox', async () => {
     assert.equal(resp.statusCode, 200, `Expected status code 200, got ${resp.statusCode}`);
 });
 
+test('Get all messages summaries for a domain and assert at least 1 exists', async () => {
+    const resp = await client.request(new GetInboxRequest(domain));
+
+    assert.ok(resp, 'Response should not be null');
+    assert.equal(resp.statusCode, 200, `Expected status code 200, got ${resp.statusCode}`);
+    assert.ok(resp.result.msgs.length > 0, 'Expected at least one message summary for the domain');
+});
+
 test('Delete all messages for a domain', async () => {
-    // delete all messages for that domain
+    const resp = await client.request(new DeleteDomainMessagesRequest(domain));
+
+    assert.ok(resp, 'Response should not be null');
+    assert.equal(resp.statusCode, 200, `Expected status code 200, got ${resp.statusCode}`);
 });
 
 test('Get all messages summaries for a domain and assert none exist', async () => {
-    // get all messages for that domain and assert that there are none
+    const resp = await client.request(new GetInboxRequest(domain));
+
+    assert.ok(resp, 'Response should not be null');
+    assert.equal(resp.statusCode, 200, `Expected status code 200, got ${resp.statusCode}`);
+    assert.equal(resp.result.msgs.length, 0, 'Expected no message summaries for the domain');
 });
