@@ -15,9 +15,9 @@ A set of tests that exercise each of Mailinator's SDKs. This will allow us to ke
 ## Directory Layout
 
 - `examples/`: Various examples of calling the Mailinator API directly.
-- `tests.cs/`: Tests that exercise the Mailinator C# SDK.
-- `tests.go/`: Tests that exercise the Mailinator Go SDK.
-- `tests.java/`: Tests that exercise the Mailinator Java SDK.
-- `tests.js/`: Tests that exercise the Mailinator JavaScript SDK.
-- `tests.py/`: Tests that exercise the Mailinator Python SDK.
-- `tests.rb/`: Tests that exercise the Mailinator Ruby SDK.
+- `tests.cs/`: Tests that exercise the [Mailinator C# SDK](https://github.com/manybrain/mailinator-csharp-client).
+- `tests.go/`: Tests that exercise the [Mailinator Go SDK](https://github.com/manybrain/mailinator-go-client).
+- `tests.java/`: Tests that exercise the [Mailinator Java SDK](https://github.com/manybrain/mailinator-java-client).
+- `tests.js/`: Tests that exercise the [Mailinator JavaScript SDK](https://github.com/manybrain/mailinator-javascript-client).
+- `tests.py/`: Tests that exercise the [Mailinator Python SDK](https://github.com/manybrain/mailinator-python-client).
+- `tests.rb/`: Tests that exercise the [Mailinator Ruby SDK](https://github.com/manybrain/mailinator-ruby-client).
