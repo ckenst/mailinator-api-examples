@@ -98,13 +98,22 @@ test('Download the attachment', async () => {
     assert.equal(resp.statusCode, 200, `Expected status code 200, got ${resp.statusCode}`);
     assert.ok(resp.result, 'Attachment response stream should be present');
 
+    /** @type {Uint8Array[]} */
     const chunks = [];
     for await (const chunk of resp.result) {
-        chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk));
+        chunks.push(chunk instanceof Uint8Array ? chunk : new Uint8Array(chunk));
     }
 
-    const attachmentContent = Buffer.concat(chunks).toString('utf8');
-    console.log('Fetched attachment content:', attachmentContent);
+    const totalLength = chunks.reduce((sum, current) => sum + current.byteLength, 0);
+    const merged = new Uint8Array(totalLength);
+
+    let offset = 0;
+    for (const current of chunks) {
+        merged.set(current, offset);
+        offset += current.byteLength;
+    }
+
+    const attachmentContent = new TextDecoder('utf-8').decode(merged);
     assert.equal(
         attachmentContent,
         'attachment-content',
