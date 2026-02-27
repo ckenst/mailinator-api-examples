@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "checkJs": true,
+    "strict": false,
+    "noImplicitAny": false,
+    "useUnknownInCatchVariables": false,
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "target": "ES2022",
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "noEmit": true
+  },
+  "include": [
+    "**/*.js",
+    "types/**/*.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
