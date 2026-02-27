@@ -17,6 +17,8 @@ dotenv.config({ path: path.resolve(__dirname, '../.env') });
 let client;
 let rulesDomain;
 
+// this is a deprecated endpoint, but we want to make sure it still works for existing users who rely on it. We will remove this test in the future when we remove the endpoint.
+
 before(() => {
     const apiToken = process.env.MAILINATOR_API_TOKEN;
     assert.ok(apiToken, 'MAILINATOR_API_TOKEN is not defined in .env');
