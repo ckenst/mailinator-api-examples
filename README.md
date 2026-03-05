@@ -21,3 +21,10 @@ A set of tests that exercise each of Mailinator's SDKs. This will allow us to ke
 - `tests.js/`: Tests that exercise the [Mailinator JavaScript SDK](https://github.com/manybrain/mailinator-javascript-client).
 - `tests.py/`: Tests that exercise the [Mailinator Python SDK](https://github.com/manybrain/mailinator-python-client).
 - `tests.rb/`: Tests that exercise the [Mailinator Ruby SDK](https://github.com/manybrain/mailinator-ruby-client).
+
+## Vibe Coding
+
+1. I wrote the tests and specified the assertions. 
+2. I let the AI generate the implementation.
+3. Then I ran, edited and reviewed the tests until they were good.
+4. All of the tool choices came from the model(s). Mostly Codex. Some Gemini 3.5 Pro. 
