@@ -50,14 +50,3 @@ test('Get a list of rules for a domain', async () => {
     assert.ok(Array.isArray(resp.result.rules), 'Expected rules to be an array');
     assert.equal(resp.result.rules.length, 0, `Expected exactly 0 rules for ${rulesDomain}`);
 });
-
-test('Create a domain', async () => {
-    // create a domain
-    // It might fail, but that's ok
-});
-
-test('Delete a domain', async () => {
-    // delete a domain
-    // It will fail because the endpoint is broken
-    // We should see some warning about deprecated endpoint
-});
