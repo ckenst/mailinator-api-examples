@@ -47,6 +47,7 @@ test('Get all messages summaries for a domain and assert at least 1 exists', asy
     assert.ok(resp, 'Response should not be null');
     assert.equal(resp.statusCode, 200, `Expected status code 200, got ${resp.statusCode}`);
     assert.ok(resp.result.msgs.length > 0, 'Expected at least one message summary for the domain');
+    console.log(`Found ${resp.result.msgs.length} message summaries for domain ${domain}`);
 });
 
 test('Delete all messages for a domain', async () => {
@@ -54,7 +55,13 @@ test('Delete all messages for a domain', async () => {
 
     assert.ok(resp, 'Response should not be null');
     assert.equal(resp.statusCode, 200, `Expected status code 200, got ${resp.statusCode}`);
+    assert.equal(resp.result.status, 'ok', `Expected result status to be 'ok', got ${resp.result.status}`);
+    assert.ok(resp.result.count > 0, `Expected at least one message to be deleted, got ${resp.result.count}`);
+    console.log(`Deleted ${resp.result.count} messages from domain ${domain}`);
 });
+
+// Wait a moment to ensure that the deletions have propagated before fetching the inbox again
+await new Promise(resolve => setTimeout(resolve, 2000));
 
 test('Get all messages summaries for a domain and assert none exist', async () => {
     const resp = await client.request(new GetInboxRequest(domain));
